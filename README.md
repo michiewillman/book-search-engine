@@ -26,12 +26,12 @@ Technologies & Key Concepts:
 
 ## Installation
 
-To view this application's repository code and try it for yourself, [click here.](https://github.com/michiewillman/nosql-social-network-api)
+To view this application's repository code and try it for yourself, [click here.](https://github.com/michiewillman/book-search-engine)
 
 You can clone this repo from GitHub via SSH using the following command to use this application on your local machine.
 
 ```bash
-git clone git@github.com:michiewillman/nosql-social-network-api.git
+git clone git@github.com:michiewillman/book-search-engine.git
 ```
 
 Install the dependencies:
