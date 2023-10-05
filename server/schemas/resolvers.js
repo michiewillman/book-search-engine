@@ -6,11 +6,11 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select(
+        const data = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
         );
 
-        return userData;
+        return data;
       }
 
       throw new AuthenticationError("Please log in.");
@@ -33,9 +33,9 @@ const resolvers = {
         );
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const pass = await user.isCorrectPassword(password);
 
-      if (!correctPw) {
+      if (!pass) {
         throw new AuthenticationError(
           "Login email or password is incorrect. Try again."
         );
@@ -46,26 +46,26 @@ const resolvers = {
     },
     saveBook: async (parent, { bookData }, context) => {
       if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
+        const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { savedBooks: bookData } },
           { new: true }
         );
 
-        return updatedUser;
+        return user;
       }
 
       throw new AuthenticationError("Please log in or sign up.");
     },
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
+        const user = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { savedBooks: { bookId } } },
           { new: true }
         );
 
-        return updatedUser;
+        return user;
       }
 
       throw new AuthenticationError("Please log in or sign up.");

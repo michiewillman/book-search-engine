@@ -15,16 +15,15 @@ module.exports = {
     }
 
     if (!token) {
-      return res.status(400).json({ message: "You have no token!" });
+      return req;
     }
 
     // Verification of token
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
-      // Set verified data to context.user
       req.user = data;
     } catch {
-      return res.status(400).json({ message: "Token is invalid." });
+      console.log("Invalid token");
     }
 
     return req;
