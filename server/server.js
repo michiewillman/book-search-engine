@@ -1,6 +1,10 @@
 const express = require("express");
 // Apollo server
 const { ApolloServer } = require("apollo-server-express");
+const path = require("path");
+
+// Authentication middleware
+const { authMiddleware } = require("./utils/auth");
 
 // GraphQL schema necessities
 const { typeDefs, resolvers } = require("./schemas");
@@ -24,7 +28,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/"));
+  res.sendFile(path.join(__dirname, "../client/public/"));
 });
 
 // New instance of Apollo server with GraphQL schema

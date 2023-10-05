@@ -40,17 +40,15 @@ function App() {
     // ApolloProvider allows requests to communicate with Apollo Server
     <ApolloProvider client={client}>
       <Router>
-        <>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<SearchBooks />} />
-            <Route path="/saved" element={<SavedBooks />} />
-            <Route
-              path="*"
-              element={<h1 className="display-2">Wrong page!</h1>}
-            />
-          </Routes>
-        </>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<SearchBooks />} />
+          <Route path="/saved" element={<SavedBooks />} />
+          <Route
+            path="*"
+            element={<h1 className="display-2">Wrong page!</h1>}
+          />
+        </Routes>
       </Router>
     </ApolloProvider>
   );
