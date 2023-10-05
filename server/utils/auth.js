@@ -26,8 +26,8 @@ module.exports = {
     } catch {
       return res.status(400).json({ message: "Token is invalid." });
     }
-    // Go to next middleware
-    next();
+
+    return req;
   },
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
