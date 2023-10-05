@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 // Adds layer of protection to token
-const secret = process.env.TOKEN_SECRET;
+const secret = process.env.REACT_APP_TOKEN_SECRET;
 // Token duration before it expires
 const expiration = "2h";
 
