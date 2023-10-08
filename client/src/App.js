@@ -14,14 +14,12 @@ import SavedBooks from "./pages/SavedBooks";
 import Navbar from "./components/Navbar";
 
 // Create endpoint for API
-const graphLink = createHttpLink({
+const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  // Check local storage for authentication
   const token = localStorage.getItem("id_token");
-  // Send found token back
   return {
     headers: {
       ...headers,
@@ -30,9 +28,8 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-// Use authentication on the endpoint
 const client = new ApolloClient({
-  link: authLink.concat(graphLink),
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
