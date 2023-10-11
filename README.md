@@ -48,9 +48,18 @@ npm start
 
 ## Usage
 
+Sign up for an account and use those same credentials to log in.
+Type your queries into the search bar for books, and view the options.
+Click the save button on a book to add it to your saved books.
+To view all of your saved books, click the button in the top right corner.
+Along with showing your saved books, that page will also give you the option to delete the book from your saved books.
+
+![Screenshot of book search engine application](./client//assets/8f9d79e1-d2e3-4c17-a5cd-3166fc36f69d.png)
+
 # Deployment
 
 This application has been deployed to Heroku.
+[View deployed application](https://book-search-engine-mw-50e2d494f31b.herokuapp.com/)
 
 ## License
 
